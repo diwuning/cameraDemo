@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.castedemo.user.BirthdayActivity">
+    <TextView
+        android:text="填写生日"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+    <View
+        android:layout_above="@+id/ll_birth"
+        android:layout_marginBottom="20dp"
+        android:background="@color/text_gray"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"/>
+    <LinearLayout
+        android:id="@+id/ll_birth"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.itheima.wheelpicker.WheelPicker
+            android:id="@+id/wheel_date_picker_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:wheel_atmospheric="true"
+            app:wheel_curved="true"
+            app:wheel_cyclic="true"
+            app:wheel_selected_item_position="5"
+            app:wheel_item_text_color="@color/text_white"
+            app:wheel_selected_item_text_color="@color/orange"/>
+        <TextView
+            android:text="年"
+            android:layout_marginLeft="6dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.itheima.wheelpicker.WheelPicker
+            android:id="@+id/wheel_date_picker_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            app:wheel_atmospheric="true"
+            app:wheel_curved="true"
+            app:wheel_cyclic="true"
+            app:wheel_selected_item_position="5"
+            app:wheel_item_text_color="@color/text_white"
+            app:wheel_selected_item_text_color="@color/orange"/>
+        <TextView
+            android:text="月"
+            android:layout_marginLeft="6dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.itheima.wheelpicker.WheelPicker
+            android:id="@+id/wheel_date_picker_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:wheel_atmospheric="true"
+            android:layout_marginLeft="16dp"
+            app:wheel_curved="true"
+            app:wheel_cyclic="true"
+            app:wheel_selected_item_position="5"
+            app:wheel_item_text_color="@color/text_white"
+            app:wheel_selected_item_text_color="@color/orange"/>
+        <TextView
+            android:text="日"
+            android:layout_marginLeft="6dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View
+        android:id="@+id/view_bottom"
+        android:layout_below="@+id/ll_birth"
+        android:layout_marginTop="20dp"
+        android:background="@color/text_gray"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"/>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/view_bottom"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_cancel"
+            android:textColor="@color/text_white"
+            android:background="@drawable/border_trans_style"
+            android:text="取消"
+            android:padding="5dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_save"
+            android:background="@drawable/border_trans_style"
+            android:textColor="@color/text_white"
+            android:text="确认"
+            android:padding="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <!--<DatePicker-->
+        <!--android:id="@+id/datePicker"-->
+        <!--style="@style/AlertDialog.AppCompat"-->
+        <!--android:datePickerMode="spinner"-->
+        <!--android:calendarViewShown="false"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+
+    <!--</DatePicker>-->
+
+</RelativeLayout>

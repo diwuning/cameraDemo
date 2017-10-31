@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_tag"
+        android:padding="10dp"
+        android:text="推荐"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/border_gray_style"
+        android:textColor="@color/text_white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:id="@+id/iv_tagCheck"
+        android:visibility="gone"
+        android:layout_alignRight="@+id/tv_tag"
+        android:layout_alignTop="@+id/tv_tag"
+        android:layout_marginTop="-5dp"
+        android:layout_marginRight="-5dp"
+        android:src="@drawable/delete_check"
+        android:layout_width="18dp"
+        android:layout_height="18dp" />
+</RelativeLayout>

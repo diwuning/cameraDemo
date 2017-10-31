@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.castedemo.user.SexActivity">
+    <TextView
+        android:text="绑定手机"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+    <LinearLayout
+        android:id="@+id/rl_phone"
+        android:paddingRight="15dp"
+        android:background="@drawable/border_gray_style"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:visibility="gone"
+            android:text="填写手机号"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/et_phone"
+            android:inputType="phone"
+            android:singleLine="true"
+            android:hint="填写手机号"
+            android:paddingLeft="5dp"
+            android:background="@drawable/border_gray_style"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_phoneCancel"
+            android:textColor="@color/text_white"
+            android:background="@drawable/border_trans_style"
+            android:text="取消"
+            android:padding="5dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_phoneSave"
+            android:background="@drawable/border_trans_style"
+            android:textColor="@color/text_white"
+            android:text="确认"
+            android:padding="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

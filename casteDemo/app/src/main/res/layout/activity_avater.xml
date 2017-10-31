@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.castedemo.Avatar.AvaterActivity">
+    <RelativeLayout
+        android:id="@+id/rl_takePhoto"
+        android:layout_marginTop="20dp"
+        android:background="@color/text_gray"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <RelativeLayout
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_takeAvater"
+                android:src="@drawable/take_avater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="自拍一张"
+                android:layout_marginTop="6dp"
+                android:layout_below="@+id/iv_takeAvater"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_default"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/rl_takePhoto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="系统头像"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <HorizontalScrollView
+            android:layout_marginTop="5dp"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:isScrollContainer="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <GridView
+                    android:id="@+id/gv_default"
+                    android:listSelector="@color/trans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </GridView>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_album"
+        android:layout_below="@+id/ll_default"
+        android:layout_above="@+id/ll_bottom"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="相册选取"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <GridView
+            android:id="@+id/gv_album"
+            android:layout_marginTop="10dp"
+            android:numColumns="3"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            android:listSelector="@color/trans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </GridView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <RelativeLayout
+            android:id="@+id/rl_cancel"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_cancel"
+                android:src="@drawable/icon_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/iv_cancel"
+                android:text="取消"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <View
+            android:background="@color/text_gray"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="0.3dp"
+            android:layout_height="match_parent"/>
+        <RelativeLayout
+            android:id="@+id/rl_confirm"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_confirm"
+                android:src="@drawable/icon_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/iv_confirm"
+                android:text="确认"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

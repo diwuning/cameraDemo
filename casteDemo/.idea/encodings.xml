@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/edge/Edge.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/edge/EdgePair.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/handle/CenterHandleHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/handle/CornerHandleHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/handle/Handle.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/handle/HandleHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/handle/HorizontalHandleHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/handle/VerticalHandleHelper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/util/AspectRatioUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/util/HandleUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/util/ImageViewUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/util/PaintUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/view/CropImageView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/view/CropOverlayView.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/example/castedemo/cropper/view/CropperImage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/crop_image_view.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/values/attrs.xml" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

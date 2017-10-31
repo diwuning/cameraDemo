@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.castedemo.user.SexActivity">
+    <TextView
+        android:id="@+id/tv_weight"
+        android:text="选择体重"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+    <View
+        android:layout_above="@+id/ll_weight"
+        android:layout_marginBottom="20dp"
+        android:background="@color/text_gray"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"/>
+    <LinearLayout
+        android:id="@+id/ll_weight"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.itheima.wheelpicker.WheelPicker
+            android:id="@+id/wheel_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:wheel_atmospheric="true"
+            app:wheel_item_text_size="18sp"
+            app:wheel_curved="true"
+            app:wheel_cyclic="true"
+            app:wheel_selected_item_position="5"
+            app:wheel_item_text_color="@color/text_white"
+            app:wheel_selected_item_text_color="@color/orange"/>
+        <TextView
+            android:id="@+id/tv_weightLabel"
+            android:text="KG"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <View
+        android:id="@+id/view_bottom"
+        android:layout_below="@+id/ll_weight"
+        android:layout_marginTop="20dp"
+        android:background="@color/text_gray"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"/>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/view_bottom"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_weightCancel"
+            android:textColor="@color/text_white"
+            android:background="@drawable/border_trans_style"
+            android:text="取消"
+            android:padding="5dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_weightSave"
+            android:background="@drawable/border_trans_style"
+            android:textColor="@color/text_white"
+            android:text="确认"
+            android:padding="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>
