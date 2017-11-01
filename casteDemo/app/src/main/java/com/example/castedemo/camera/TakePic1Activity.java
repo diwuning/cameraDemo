@@ -63,6 +63,7 @@ public class TakePic1Activity extends AppCompatActivity implements SurfaceHolder
     private File picDir = new File(FilePath);//设为全局变量 ;
     private String filename = "";
     private boolean safeToTakePicture = true;
+    String status = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,9 @@ public class TakePic1Activity extends AppCompatActivity implements SurfaceHolder
 //        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 //            ActivityCompat.requestPermissions(TakePic1Activity.this, new String[] {Manifest.permission.CAMERA},1);
 //        }
+        if(getIntent().getStringExtra("status") != null && !getIntent().getStringExtra("status").equals("")){
+            status = getIntent().getStringExtra("status");
+        }
 
         SurfaceHolder holder = surfaceView.getHolder();
         holder.setKeepScreenOn(true);// 屏幕常亮
@@ -182,6 +186,8 @@ public class TakePic1Activity extends AppCompatActivity implements SurfaceHolder
 
                 //跳转到截图界面
                 Intent cropIntent = new Intent(mContext,CropImgActivity.class);
+                cropIntent.putExtra("status",status);
+                Log.e(TAG,"status="+status);
                 cropIntent.putExtra("takepath",filename);
                 startActivity(cropIntent);
                 finish();

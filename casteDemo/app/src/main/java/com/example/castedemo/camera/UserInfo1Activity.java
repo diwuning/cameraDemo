@@ -171,6 +171,7 @@ public class UserInfo1Activity extends Activity {
             case R.id.ll_userPic:
                 Intent picIntent = new Intent(mContext, AvaterActivity.class);
 //                startActivityForResult(picIntent,11);
+                picIntent.putExtra("status","add");
                 startActivity(picIntent);
                 break;
             case R.id.ll_nickName:

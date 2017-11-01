@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import com.example.castedemo.R;
 import com.example.castedemo.cropper.view.CropImageView;
 import com.example.castedemo.cropper.view.CropperImage;
+import com.example.castedemo.family.FamilyListActivity;
 import com.example.castedemo.utils.Utils;
 
 import java.io.File;
@@ -48,6 +49,7 @@ public class CropImgActivity extends Activity {
     public static String FilePath = Environment.getExternalStorageDirectory()
             + "/messageBoard/photoImgs/";
     Context mContext;
+    String status = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,11 @@ public class CropImgActivity extends Activity {
         if(!getIntent().getStringExtra("takepath").equals("")){
             imgPath = getIntent().getStringExtra("takepath");
         }
+
+        if(!getIntent().getStringExtra("status").equals("")){
+            status = getIntent().getStringExtra("status");
+        }
+
         File file = new File(imgPath);
         // 存储图像（PATH目录）
         Uri source = Uri.fromFile(file);
@@ -92,19 +99,41 @@ public class CropImgActivity extends Activity {
         cropperImage.getBitmap().recycle();
         cropperImage.setBitmap(null);
 
-        Intent userIntent = new Intent(mContext, UserInfo1Activity.class);
-        userIntent.setData(uri);
-        userIntent.putExtra("from","crop");
-        userIntent.putExtra("path", FilePath + filename);
-        Log.e(TAG,"path  1="+FilePath+filename);
-        userIntent.putExtra("width", bitmap.getWidth());
-        userIntent.putExtra("height", bitmap.getHeight());
-        userIntent.putExtra("cropperImage", cropperImage);
-        //要启动的activity已经在当前的任务中，那么在该activity之上的activity都会关闭，并且intent会传递给在栈顶的activity
 
-        //如果 Activity 已经是运行在 Task 的 top，则该 Activity 将不会再被启动
-        userIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(userIntent);
+        Log.e(TAG,"status="+status);
+        if(status.equals("add")){
+            Intent userIntent = new Intent(mContext, UserInfo1Activity.class);
+            userIntent.setData(uri);
+            userIntent.putExtra("from","crop");
+            userIntent.putExtra("path", FilePath + filename);
+            Log.e(TAG,"path  1="+FilePath+filename);
+            userIntent.putExtra("width", bitmap.getWidth());
+            userIntent.putExtra("height", bitmap.getHeight());
+            userIntent.putExtra("cropperImage", cropperImage);
+            //要启动的activity已经在当前的任务中，那么在该activity之上的activity都会关闭，并且intent会传递给在栈顶的activity
+
+            //如果 Activity 已经是运行在 Task 的 top，则该 Activity 将不会再被启动
+            userIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(userIntent);
+        }else if(status.equals("update")){
+            Intent userIntent = new Intent(mContext, FamilyListActivity.class);
+            userIntent.setData(uri);
+            userIntent.putExtra("from","crop");
+            userIntent.putExtra("path", FilePath + filename);
+            Log.e(TAG,"path  1="+FilePath+filename);
+            userIntent.putExtra("width", bitmap.getWidth());
+            userIntent.putExtra("height", bitmap.getHeight());
+            userIntent.putExtra("cropperImage", cropperImage);
+            //要启动的activity已经在当前的任务中，那么在该activity之上的activity都会关闭，并且intent会传递给在栈顶的activity
+
+            //如果 Activity 已经是运行在 Task 的 top，则该 Activity 将不会再被启动
+            userIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(userIntent);
+        }
+
+//        Intent userIntent = new Intent();
+
+//        setResult(RESULT_OK,userIntent);
         bitmap.recycle();
         finish();
 //        super.overridePendingTransition(R.anim.fade_in,

@@ -261,6 +261,7 @@ public class FamilyListActivity extends Activity {
         switch (view.getId()) {
             case R.id.ll_userPic:
                 Intent picIntent = new Intent(mContext, AvaterActivity.class);
+                picIntent.putExtra("status","update");
                 startActivity(picIntent);
                 break;
             case R.id.ll_nickName:
@@ -302,6 +303,9 @@ public class FamilyListActivity extends Activity {
                 break;
             case R.id.btn_saveMember:
                 if(isUpdate){
+                    if(!imgPath.equals("")){
+                        userInfo.setUserImg(imgPath);
+                    }
                     userInfoDao.updateUserInfo(userInfo);
                     initMembers();
                 }
@@ -406,6 +410,21 @@ public class FamilyListActivity extends Activity {
                         userInfo.setPhone(phone);
                     break;
             }
+        }
+    }
+
+    String imgPath = "";
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        imgPath = intent.getStringExtra("path");
+        Log.e(TAG, "onNewIntent ====uri=" + getIntent().getData() + ",path=" + imgPath);
+        String from = intent.getStringExtra("from");
+        if (from.equals("crop")) {
+//            ImageLoader.getInstance().displayImage("file://"+imgPath,ivUserPic);
+            ImageLoader.getInstance().displayImage("file://" + imgPath, ciUserPic);
+        } else if (from.equals("system")) {
+//            ImageLoader.getInstance().displayImage(imgPath,ivUserPic);
+            ImageLoader.getInstance().displayImage(imgPath, ciUserPic);
         }
     }
 }

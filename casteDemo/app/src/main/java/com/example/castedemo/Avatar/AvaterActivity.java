@@ -29,6 +29,7 @@ import com.example.castedemo.R;
 import com.example.castedemo.camera.CropImgActivity;
 import com.example.castedemo.camera.TakePic1Activity;
 import com.example.castedemo.camera.UserInfo1Activity;
+import com.example.castedemo.family.FamilyListActivity;
 import com.example.sugardemo.UserInfoDao;
 
 import java.io.File;
@@ -66,6 +67,7 @@ public class AvaterActivity extends Activity {
     Context mContext;
     UserInfoDao userInfoDao;
     String userId = "";
+    String status = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,10 @@ public class AvaterActivity extends Activity {
         if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(AvaterActivity.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},2);
         }
+        if(getIntent().getStringExtra("status") != null && !getIntent().getStringExtra("status").equals("")){
+            status = getIntent().getStringExtra("status");
+        }
+
         initAlbum();
     }
 
@@ -158,6 +164,7 @@ public class AvaterActivity extends Activity {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 Intent cropIntent = new Intent(mContext, CropImgActivity.class);
+                                cropIntent.putExtra("status",status);
                                 cropIntent.putExtra("takepath",mediaBeen.get(position).getPath());
                                 startActivity(cropIntent);
                             }
@@ -197,11 +204,19 @@ public class AvaterActivity extends Activity {
             gvDefault.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent userIntent = new Intent(mContext, UserInfo1Activity.class);
-                    userIntent.putExtra("path",systemAvater[position]);
-                    userIntent.putExtra("from","system");
-                    userIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    startActivity(userIntent);
+                    if(status.equals("add")){
+                        Intent userIntent = new Intent(mContext, UserInfo1Activity.class);
+                        userIntent.putExtra("path",systemAvater[position]);
+                        userIntent.putExtra("from","system");
+                        userIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(userIntent);
+                    }else{
+                        Intent userIntent = new Intent(mContext, FamilyListActivity.class);
+                        userIntent.putExtra("path",systemAvater[position]);
+                        userIntent.putExtra("from","system");
+                        userIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(userIntent);
+                    }
                     finish();
                 }
             });
@@ -216,6 +231,7 @@ public class AvaterActivity extends Activity {
         switch (view.getId()) {
             case R.id.rl_takePhoto:
                 Intent takeIntent = new Intent(AvaterActivity.this, TakePic1Activity.class);
+                takeIntent.putExtra("status",status);
                 startActivity(takeIntent);
                 break;
             case R.id.rl_cancel:
