@@ -21,6 +21,11 @@
         android:background="@color/line"
         android:layout_width="match_parent"
         android:layout_height="1px"/>
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/wheel_middle"
+        android:layout_centerVertical="true"
+        android:layout_height="98px"/>
     <LinearLayout
         android:id="@+id/ll_birth"
         android:layout_centerInParent="true"
@@ -33,6 +38,7 @@
             app:wheel_atmospheric="true"
             app:wheel_curved="true"
             app:wheel_cyclic="true"
+            app:wheel_item_space="36px"
             app:wheel_selected_item_position="5"
             app:wheel_item_text_size="46px"
             app:wheel_item_text_color="@color/btn_text"
@@ -53,6 +59,7 @@
             app:wheel_curved="true"
             app:wheel_cyclic="true"
             app:wheel_selected_item_position="5"
+            app:wheel_item_space="36px"
             app:wheel_item_text_size="46px"
             app:wheel_item_text_color="@color/btn_text"
             app:wheel_selected_item_text_color="@color/text_orange"/>
@@ -71,6 +78,7 @@
             android:layout_marginLeft="182px"
             app:wheel_curved="true"
             app:wheel_cyclic="true"
+            app:wheel_item_space="36px"
             app:wheel_selected_item_position="5"
             app:wheel_item_text_size="46px"
             app:wheel_item_text_color="@color/btn_text"

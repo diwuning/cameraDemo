@@ -47,23 +47,9 @@ public class MemberAdapter extends BaseAdapter {
         spare=new SparseBooleanArray();
     }
     public void setDataChange(int position) {
-//        for (int i=0;i<userInfoList.size();i++){
-//            setItemCheck(i,false);
-//        }
-//        setItemCheck(position,true);
         this.location = position;
         notifyDataSetChanged();
         Log.e(TAG, "getView: "+spare.toString() );
-//       this.location = position;
-//        for(int i=0;i>userInfoList.size();i++){
-//            checkFlag[i] = false;
-//        }
-//        checkFlag[position] = true;
-//        Log.e(TAG, "setDataChange: "+location+"" );
-//        notifyDataSetChanged();
-//        setItemCheck(position,true);
-//        notifyDataSetChanged();
-       // Log.e(TAG,"1111111111="+spare.toString());
     }
 
 
@@ -115,24 +101,7 @@ public class MemberAdapter extends BaseAdapter {
             }else {
                 ImageLoader.getInstance().displayImage("file://"+userInfo.getUserImg(),holder.ivSystem,options);
             }
-//            holder.ivSystem.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    for (int i=0;i<userInfoList.size();i++){
-//                        setItemCheck(i,false);
-//                    }
-//                    setItemCheck(position,true);
-//                    if (isItemChecked(position)){
-//                        holder.iv_avaterBg.setVisibility(View.VISIBLE);
-//                        holder.tvSystemName.setTextColor(mContext.getResources().getColor(R.color.orange));
-//                        holder.ivCheckFlag.setVisibility(View.VISIBLE);
-//                    }
-//                }
-//            });
-//            holder.iv_avaterBg.setVisibility(View.GONE);
-//            holder.tvSystemName.setTextColor(mContext.getResources().getColor(R.color.text_white));
-//            holder.ivCheckFlag.setVisibility(View.GONE);
-//            Log.e(TAG, "getView: "+isItemChecked(position) );
+
             holder.tvSystemName.setText(userInfo.getUserName());
             if(location == position){
                 holder.iv_avaterBg.setVisibility(View.VISIBLE);
@@ -141,8 +110,9 @@ public class MemberAdapter extends BaseAdapter {
             }else{
                 holder.iv_avaterBg.setVisibility(View.GONE);
                 holder.tvSystemName.setTextColor(mContext.getResources().getColor(R.color.text_white));
-                holder.ivCheckFlag.setVisibility(View.GONE);
+                holder.ivCheckFlag.setVisibility(View.INVISIBLE);
             }
+
         }
 
         return convertView;
