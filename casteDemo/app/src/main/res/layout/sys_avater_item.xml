@@ -4,12 +4,32 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/iv_system"
-        android:layout_width="70dp"
-        android:layout_height="70dp" />
+    <RelativeLayout
+        android:layout_width="119px"
+        android:layout_height="117px">
+        <ImageView
+            android:id="@+id/iv_avaterBg"
+            android:src="@drawable/icon_avater_bg"
+            android:layout_width="119px"
+            android:visibility="gone"
+            android:layout_height="117px" />
+        <com.example.castedemo.view.CircleImageView
+            android:id="@+id/iv_system"
+            android:layout_centerInParent="true"
+            android:layout_width="99px"
+            android:layout_height="97px" />
+    </RelativeLayout>
     <TextView
         android:id="@+id/tv_systemName"
+        android:layout_marginTop="14px"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/iv_checkFlag"
+        android:visibility="gone"
+        android:layout_marginTop="20px"
+        android:src="@drawable/icon_family_flag"
+        android:layout_width="31px"
+        android:layout_height="27px" />
 </LinearLayout>

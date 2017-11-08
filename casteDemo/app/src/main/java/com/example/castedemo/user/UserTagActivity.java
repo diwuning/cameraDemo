@@ -4,18 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.RelativeLayout;
 
 import com.example.castedemo.R;
 import com.example.castedemo.family.adapter.NewTagAdapter;
-import com.example.castedemo.family.adapter.TagAdapter;
-import com.example.castedemo.user.bean.TagBean;
+import com.example.sugardemo.UserTag;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +32,8 @@ public class UserTagActivity extends Activity {
 //    ImageView ivBack;
 //    @BindView(R.id.rl_bottom)
 //    RelativeLayout rlBottom;
-    String[] allTags = {"推荐", "热点", "视频", "图片", "段子", "社会", "娱乐", "科技"};
+//    String[] allTags = {"推荐", "热点", "视频", "图片", "段子", "社会", "娱乐", "科技"};
+    String[] allTags = {"酸", "甜", "苦", "辣", "咸", "粤菜", "韩餐", "日料", "鲁菜", "徽菜", "川菜", "闽菜", "西餐"};
     NewTagAdapter tagAdapter;
     @BindView(R.id.btn_tagCancel)
     Button btnTagCancel;
@@ -43,8 +41,8 @@ public class UserTagActivity extends Activity {
     Button btnTagSave;
     Context mContext;
     List<String> selTags = new ArrayList<String>();
-    List<TagBean> tagBeen = new ArrayList<TagBean>();
-    List<TagBean> selTagBeans = new ArrayList<TagBean>();
+    List<UserTag> tagBeen = new ArrayList<UserTag>();
+    List<UserTag> selTagBeans = new ArrayList<UserTag>();
     NewTagAdapter selTagAdapter;
 
     @Override
@@ -59,7 +57,7 @@ public class UserTagActivity extends Activity {
 
     public void initData() {
         for(int i=0;i<allTags.length;i++){
-            TagBean bean = new TagBean();
+            UserTag bean = new UserTag();
             bean.setTag(allTags[i]);
             bean.setSel(false);
             tagBeen.add(bean);
@@ -69,7 +67,7 @@ public class UserTagActivity extends Activity {
         gvAllTag.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TagBean tagBean = tagBeen.get(position);
+                UserTag tagBean = tagBeen.get(position);
                 Log.e(TAG,"tagName="+tagBean.getTag()+","+tagBean.isSel());
                 if(tagBean.isSel()){
                     tagBean.setSel(false);
@@ -90,7 +88,7 @@ public class UserTagActivity extends Activity {
             String[] saveTag = tags.split(",");
             for(int i=0;i<saveTag.length;i++){
                 for(int j=0;j<tagBeen.size();j++){
-                    TagBean bean = tagBeen.get(j);
+                    UserTag bean = tagBeen.get(j);
                     if(saveTag[i].equals(bean.getTag())){
                         bean.setSel(true);
                         selTagBeans.add(bean);
@@ -103,7 +101,7 @@ public class UserTagActivity extends Activity {
         gvAddedTag.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TagBean bean = selTagBeans.get(position);
+                UserTag bean = selTagBeans.get(position);
                 bean.setSel(false);
                 selTagBeans.remove(position);
                 selTagAdapter.notifyDataSetChanged();

@@ -4,8 +4,16 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="text_gray">#424242</color>
-    <color name="bg_gray">#a0a0a0</color>
+    <color name="bg_gray">#323232</color>
     <color name="text_white">#ffffff</color>
     <color name="trans">#00000000</color>
+    <color name="black">#000000</color>
     <color name="orange">#ffa000</color>
+    <color name="text_orange">#f4c53d</color>
+    <color name="info_bg">#191919</color>
+    <color name="btn_text">#99ffffff</color>
+    <color name="btn_cancel_text">#66ffffff</color>
+    <color name="line">#33ffffff</color>
+    <color name="birthday_title">#fefefe</color>
+    <color name="wheel_middle">#663c3c3c</color>
 </resources>

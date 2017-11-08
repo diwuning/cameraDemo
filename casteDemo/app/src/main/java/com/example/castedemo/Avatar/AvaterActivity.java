@@ -76,27 +76,11 @@ public class AvaterActivity extends Activity {
         ButterKnife.bind(this);
         mContext = AvaterActivity.this;
         userInfoDao = new UserInfoDao();
-        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(AvaterActivity.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},2);
-        }
         if(getIntent().getStringExtra("status") != null && !getIntent().getStringExtra("status").equals("")){
             status = getIntent().getStringExtra("status");
         }
 
         initAlbum();
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == 2) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "权限请求成功", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "权限被拒绝", Toast.LENGTH_SHORT).show();
-            }
-            return;
-        }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     public void initAlbum(){
@@ -193,12 +177,12 @@ public class AvaterActivity extends Activity {
             SystemAvaterAdapter adapter = new SystemAvaterAdapter(AvaterActivity.this,picBean);
             int size = systemAvater.length;
             gvDefault.setNumColumns(size);
-            int width = 210;
-            int gridWidth = size*(width+10);
+            int width = 127;
+            int gridWidth = size*(width+38);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridWidth, ViewGroup.LayoutParams.FILL_PARENT);
             gvDefault.setLayoutParams(params);
-            gvDefault.setColumnWidth(210);
-            gvDefault.setHorizontalSpacing(10);
+            gvDefault.setColumnWidth(127);
+            gvDefault.setHorizontalSpacing(38);
             gvDefault.setAdapter(adapter);
 
             gvDefault.setOnItemClickListener(new AdapterView.OnItemClickListener() {

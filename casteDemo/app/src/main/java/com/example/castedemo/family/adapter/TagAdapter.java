@@ -45,7 +45,7 @@ public class TagAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.tag_item, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.tag_sel_item, null);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }else{

@@ -3,22 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginLeft="38px"
+    android:layout_marginRight="40px"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.castedemo.user.SexActivity">
     <TextView
         android:text="绑定手机"
+        style="@style/title_text"
+        android:layout_marginTop="202px"
+        android:layout_marginLeft="42px"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="48dp" />
     <LinearLayout
         android:id="@+id/rl_phone"
         android:paddingRight="15dp"
+        android:layout_marginTop="40px"
         android:background="@drawable/border_gray_style"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="130px">
         <TextView
             android:visibility="gone"
             android:text="填写手机号"
@@ -30,36 +34,38 @@
             android:inputType="phone"
             android:singleLine="true"
             android:hint="填写手机号"
-            android:paddingLeft="5dp"
+            android:textColorHint="#66ffffff"
+            android:paddingLeft="30px"
             android:background="@drawable/border_gray_style"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="130px" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="120px"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/btn_phoneCancel"
-            android:textColor="@color/text_white"
+            android:textColor="@color/btn_cancel_text"
             android:background="@drawable/border_trans_style"
+            android:textSize="24px"
             android:text="取消"
-            android:padding="5dp"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content" />
+            android:gravity="center"
+            android:layout_width="132px"
+            android:layout_height="65px" />
         <Button
             android:id="@+id/btn_phoneSave"
-            android:background="@drawable/border_trans_style"
-            android:textColor="@color/text_white"
+            android:background="@drawable/border_orange_style"
+            android:textColor="@color/black"
+            android:textSize="24px"
             android:text="确认"
-            android:padding="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content" />
+            android:gravity="center"
+            android:layout_marginLeft="174px"
+            android:layout_width="132px"
+            android:layout_height="65px" />
     </LinearLayout>
 </LinearLayout>

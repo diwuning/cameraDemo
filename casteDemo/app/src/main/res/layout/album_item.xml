@@ -4,8 +4,9 @@
     android:layout_height="match_parent">
     <ImageView
         android:id="@+id/iv_album"
-        android:layout_width="125dp"
-        android:layout_height="125dp" />
+        android:scaleType="centerCrop"
+        android:layout_width="322px"
+        android:layout_height="294px" />
     <ImageView
         android:id="@+id/iv_isCheck"
         android:layout_width="wrap_content"

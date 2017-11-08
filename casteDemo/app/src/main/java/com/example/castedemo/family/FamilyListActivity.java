@@ -1,9 +1,13 @@
 package com.example.castedemo.family;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,6 +116,9 @@ public class FamilyListActivity extends Activity {
     RelativeLayout rl_noMember;
     UserInfo userInfo;
     boolean isUpdate = false;
+    String mainPhone = "13256397920";
+    MemberAdapter memberAdapter;
+    int selIndex = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +128,21 @@ public class FamilyListActivity extends Activity {
         mContext = FamilyListActivity.this;
         userInfoDao = new UserInfoDao();
         initMembers();
+        if(userInfos != null && userInfos.size() != 0){
+            userInfo = userInfos.get(0);
+            setTextValue();
+            if(memberAdapter != null){
+                selIndex = 0;
+                memberAdapter.setDataChange(0);
+            }
+        }
+
+        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(FamilyListActivity.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},2);
+        }
+        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(FamilyListActivity.this, new String[] {Manifest.permission.CAMERA},1);
+        }
         //faceId的操作
         switchFace.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -138,33 +160,43 @@ public class FamilyListActivity extends Activity {
     public void onResume() {
         super.onResume();
         initMembers();
+        if(selIndex != -1&& memberAdapter != null){
+            memberAdapter.setDataChange(selIndex);
+        }
     }
 
     /*
     * 获取已添加的成员列表
     * */
     public void initMembers() {
-        userInfos = userInfoDao.getAllUsers();
+//        userInfos = userInfoDao.getAllUsers();
+        if(userInfoDao.getUsersByTel(mainPhone) != null){
+            userInfos = userInfoDao.getUsersByTel(mainPhone);
+        }
+
         if (userInfos.size() != 0) {
             svFamily.setVisibility(View.VISIBLE);
             rl_noMember.setVisibility(View.GONE);
-            MemberAdapter memberAdapter = new MemberAdapter(mContext, userInfos);
+            memberAdapter = new MemberAdapter(mContext, userInfos);
             int size = userInfos.size() + 1;
             gvFamily.setNumColumns(size);
-            int width = 210;
-            int gridWidth = size * (width + 10);
+            int width = 119;
+            int gridWidth = size * (width + 48);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridWidth, ViewGroup.LayoutParams.FILL_PARENT);
             gvFamily.setLayoutParams(params);
-            gvFamily.setColumnWidth(210);
-            gvFamily.setHorizontalSpacing(10);
+            gvFamily.setColumnWidth(119);
+            gvFamily.setHorizontalSpacing(48);
             gvFamily.setAdapter(memberAdapter);
             //点击一个头像，将该头像信息显示到下方各个选项中
             gvFamily.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     userInfo = userInfos.get(position);
+                    selIndex = position;
                     isUpdate = true;
                     setTextValue();
+//                    checkFlag[position] = true;
+                    memberAdapter.setDataChange(position);
                 }
 
             });
@@ -220,11 +252,11 @@ public class FamilyListActivity extends Activity {
                     TagAdapter tagAdapter = new TagAdapter(mContext, tags);
                     int tagSize = tags.length;
                     gvTag.setNumColumns(tagSize);
-                    int width = 210;
+                    int width = 148;
                     int gridWidth = tagSize * (width + 10);
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridWidth, ViewGroup.LayoutParams.FILL_PARENT);
                     gvTag.setLayoutParams(params);
-                    gvTag.setColumnWidth(210);
+                    gvTag.setColumnWidth(148);
                     gvTag.setHorizontalSpacing(10);
                     gvTag.setAdapter(tagAdapter);
                 }
@@ -234,7 +266,7 @@ public class FamilyListActivity extends Activity {
             if (userInfo.getPhone() != null && !userInfo.getPhone().equals("")) {
                 tvPhone.setText(userInfo.getPhone());
             }
-            if (userInfo.isFaceId()) {
+            if (userInfo.getFaceId() != null && !userInfo.getFaceId().equals("")) {
                 switchFace.setChecked(true);
                 switchFace.setVisibility(View.VISIBLE);
                 tvFaceid.setVisibility(View.GONE);
@@ -256,7 +288,7 @@ public class FamilyListActivity extends Activity {
     }
 
     @OnClick({R.id.ll_userPic, R.id.ll_nickName, R.id.ll_birthday, R.id.ll_height, R.id.ll_weight,
-            R.id.ll_userTag, R.id.ll_phone, R.id.btn_saveMember, R.id.btn_delMember, R.id.ll_sex})
+            R.id.ll_userTag, R.id.ll_phone, R.id.btn_saveMember, R.id.btn_delMember, R.id.ll_sex,R.id.iv_back})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_userPic:
@@ -308,6 +340,7 @@ public class FamilyListActivity extends Activity {
                     }
                     userInfoDao.updateUserInfo(userInfo);
                     initMembers();
+                    memberAdapter.setDataChange(userInfos.size()-1);
                 }
 
                 break;
@@ -339,6 +372,8 @@ public class FamilyListActivity extends Activity {
                 }
 
                 break;
+            case R.id.iv_back:
+                finish();
         }
     }
 
@@ -383,17 +418,17 @@ public class FamilyListActivity extends Activity {
                 case 2006://偏好标签
 //                    tags = data.getStringArrayExtra("tag");
                     receiveTags = data.getStringExtra("tag");
-
+                    Log.e(TAG,"receiveTags="+receiveTags);
                     if(receiveTags != null && !receiveTags.equals(""))/*(tags != null && tags.length != 0)*/{
                         String[] tags = receiveTags.split(",");
                         TagAdapter tagAdapter = new TagAdapter(mContext, tags);
                         int size = tags.length;
                         gvTag.setNumColumns(size);
-                        int width = 210;
+                        int width = 148;
                         int gridWidth = size * (width + 10);
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridWidth, ViewGroup.LayoutParams.FILL_PARENT);
                         gvTag.setLayoutParams(params);
-                        gvTag.setColumnWidth(210);
+                        gvTag.setColumnWidth(148);
                         gvTag.setHorizontalSpacing(10);
                         gvTag.setAdapter(tagAdapter);
                         hsv_tag.setVisibility(View.VISIBLE);

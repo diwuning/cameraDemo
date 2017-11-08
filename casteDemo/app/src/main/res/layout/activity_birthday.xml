@@ -2,22 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginLeft="40px"
+    android:layout_marginRight="40px"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.castedemo.user.BirthdayActivity">
     <TextView
         android:text="填写生日"
+        android:textColor="@color/birthday_title"
+        android:textSize="28px"
+        android:layout_marginTop="120px"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="wrap_content" />
     <View
         android:layout_above="@+id/ll_birth"
-        android:layout_marginBottom="20dp"
-        android:background="@color/text_gray"
+        android:layout_marginBottom="102px"
+        android:background="@color/line"
         android:layout_width="match_parent"
-        android:layout_height="0.3dp"/>
+        android:layout_height="1px"/>
     <LinearLayout
         android:id="@+id/ll_birth"
         android:layout_centerInParent="true"
@@ -31,11 +34,13 @@
             app:wheel_curved="true"
             app:wheel_cyclic="true"
             app:wheel_selected_item_position="5"
-            app:wheel_item_text_color="@color/text_white"
-            app:wheel_selected_item_text_color="@color/orange"/>
+            app:wheel_item_text_size="46px"
+            app:wheel_item_text_color="@color/btn_text"
+            app:wheel_selected_item_text_color="@color/text_orange"/>
         <TextView
             android:text="年"
-            android:layout_marginLeft="6dp"
+            style="@style/info_label"
+            android:layout_marginLeft="16px"
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -43,16 +48,18 @@
             android:id="@+id/wheel_date_picker_month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="182px"
             app:wheel_atmospheric="true"
             app:wheel_curved="true"
             app:wheel_cyclic="true"
             app:wheel_selected_item_position="5"
-            app:wheel_item_text_color="@color/text_white"
-            app:wheel_selected_item_text_color="@color/orange"/>
+            app:wheel_item_text_size="46px"
+            app:wheel_item_text_color="@color/btn_text"
+            app:wheel_selected_item_text_color="@color/text_orange"/>
         <TextView
             android:text="月"
-            android:layout_marginLeft="6dp"
+            style="@style/info_label"
+            android:layout_marginLeft="24px"
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -61,15 +68,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:wheel_atmospheric="true"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="182px"
             app:wheel_curved="true"
             app:wheel_cyclic="true"
             app:wheel_selected_item_position="5"
-            app:wheel_item_text_color="@color/text_white"
-            app:wheel_selected_item_text_color="@color/orange"/>
+            app:wheel_item_text_size="46px"
+            app:wheel_item_text_color="@color/btn_text"
+            app:wheel_selected_item_text_color="@color/text_orange"/>
         <TextView
             android:text="日"
-            android:layout_marginLeft="6dp"
+            style="@style/info_label"
+            android:layout_marginLeft="24px"
             android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -77,34 +86,32 @@
     <View
         android:id="@+id/view_bottom"
         android:layout_below="@+id/ll_birth"
-        android:layout_marginTop="20dp"
-        android:background="@color/text_gray"
+        android:layout_marginTop="102px"
+        android:background="@color/line"
         android:layout_width="match_parent"
-        android:layout_height="0.3dp"/>
+        android:layout_height="1px"/>
 
     <LinearLayout
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="170px"
         android:layout_below="@+id/view_bottom"
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/btn_cancel"
-            android:textColor="@color/text_white"
+            style="@style/btn_cancel_text"
             android:background="@drawable/border_trans_style"
             android:text="取消"
-            android:padding="5dp"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content" />
+            android:layout_width="132px"
+            android:layout_height="64px" />
         <Button
             android:id="@+id/btn_save"
-            android:background="@drawable/border_trans_style"
-            android:textColor="@color/text_white"
+            android:background="@drawable/border_orange_style"
+            style="@style/btn_save_text"
             android:text="确认"
-            android:padding="5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content" />
+            android:layout_marginLeft="174px"
+            android:layout_width="132px"
+            android:layout_height="64px" />
     </LinearLayout>
     <!--<DatePicker-->
         <!--android:id="@+id/datePicker"-->

@@ -16,7 +16,9 @@ public class UserInfo extends SugarRecord {
     private float weight;
     private String tags;
     private String phone;
-    private boolean faceId;
+    private String faceId;
+    private boolean isMain;//是否是主帐号
+    private String mainPhone;//关联主帐号
 
     public String getUserName() {
         return userName;
@@ -74,13 +76,6 @@ public class UserInfo extends SugarRecord {
         this.phone = phone;
     }
 
-    public boolean isFaceId() {
-        return faceId;
-    }
-
-    public void setFaceId(boolean faceId) {
-        this.faceId = faceId;
-    }
 
     public int getUserId() {
         return userId;
@@ -96,5 +91,29 @@ public class UserInfo extends SugarRecord {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public String getFaceId() {
+        return faceId;
+    }
+
+    public void setFaceId(String faceId) {
+        this.faceId = faceId;
+    }
+
+    public boolean isMain() {
+        return isMain;
+    }
+
+    public void setMain(boolean main) {
+        isMain = main;
+    }
+
+    public String getMainPhone() {
+        return mainPhone;
+    }
+
+    public void setMainPhone(String mainPhone) {
+        this.mainPhone = mainPhone;
     }
 }

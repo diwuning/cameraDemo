@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,10 +7,12 @@
     tools:context="com.example.castedemo.camera.CropImgActivity">
     <LinearLayout
         android:id="@+id/cropper_layout"
+        android:layout_above="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
         <RelativeLayout
+            android:layout_marginTop="377px"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -38,60 +40,72 @@
                 <!--android:padding="12dp"-->
                 <!--android:src="@drawable/ic_launcher_round"/>-->
         <!--</RelativeLayout>-->
+
+    </LinearLayout>
+    <View
+        android:id="@+id/view1"
+        android:layout_above="@+id/ll_bottom"
+        android:background="@color/line"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="50px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="52px"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/rl_cancel"
+            android:onClick="closeCropper"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_cancel"
+                android:src="@drawable/icon_return"
+                android:layout_centerHorizontal="true"
+                android:layout_width="66px"
+                android:layout_height="66px" />
+            <TextView
+                android:layout_marginTop="2px"
+                android:layout_below="@+id/iv_cancel"
+                android:text="取消"
+                android:layout_centerHorizontal="true"
+                style="@style/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
         <View
             android:background="@color/text_gray"
-            android:layout_width="match_parent"
-            android:layout_height="0.3dp"/>
-        <LinearLayout
-            android:id="@+id/ll_bottom"
-            android:layout_alignParentBottom="true"
-            android:weightSum="2"
-            android:layout_width="match_parent"
-            android:layout_height="80dp">
-            <RelativeLayout
-                android:id="@+id/rl_cancel"
-                android:gravity="center"
-                android:onClick="closeCropper"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:id="@+id/iv_cancel"
-                    android:src="@drawable/icon_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_below="@+id/iv_cancel"
-                    android:text="取消"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <View
-                android:background="@color/text_gray"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="0.3dp"
-                android:layout_height="match_parent"/>
-            <RelativeLayout
-                android:id="@+id/rl_confirm"
-                android:gravity="center"
-                android:onClick="startCropper"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:id="@+id/iv_confirm"
-                    android:src="@drawable/icon_back"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:layout_below="@+id/iv_confirm"
-                    android:text="确认"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-        </LinearLayout>
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_width="1px"
+            android:layout_height="116px"/>
+        <RelativeLayout
+            android:id="@+id/rl_confirm"
+            android:onClick="startCropper"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_confirm"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/icon_confirm"
+                android:layout_width="66px"
+                android:layout_height="66px" />
+            <TextView
+                android:layout_marginTop="2px"
+                android:layout_below="@+id/iv_confirm"
+                android:text="确认"
+                android:layout_centerHorizontal="true"
+                style="@style/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

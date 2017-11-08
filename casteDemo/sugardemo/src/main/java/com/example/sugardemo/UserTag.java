@@ -1,16 +1,18 @@
-package com.example.castedemo.user.bean;
+package com.example.sugardemo;
+
+import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
 
 /**
- * Created by wangchm on 2017/10/28 0028.
+ * Created by wangchm on 2017/11/3 0003.
+ * 偏好标签
  */
 
-public class TagBean {
+public class UserTag extends SugarRecord {
     private int tagId;
     private String tag;
+    @Ignore
     private boolean isSel;
-
-    public TagBean() {
-    }
 
     public int getTagId() {
         return tagId;

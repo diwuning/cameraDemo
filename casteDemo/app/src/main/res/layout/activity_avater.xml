@@ -2,30 +2,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginLeft="20dp"
-    android:layout_marginRight="20dp"
+    android:layout_marginLeft="38px"
+    android:layout_marginRight="40px"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.castedemo.Avatar.AvaterActivity">
     <RelativeLayout
         android:id="@+id/rl_takePhoto"
-        android:layout_marginTop="20dp"
-        android:background="@color/text_gray"
+        android:layout_marginTop="130px"
+        android:background="@color/info_bg"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="284px">
         <RelativeLayout
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/iv_takeAvater"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/take_avater"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="49px"
+                android:layout_height="42px" />
             <TextView
                 android:text="自拍一张"
-                android:layout_marginTop="6dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="42px"
+                style="@style/info_hint"
                 android:layout_below="@+id/iv_takeAvater"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -33,17 +36,18 @@
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/ll_default"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="44px"
         android:layout_below="@+id/rl_takePhoto"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:text="系统头像"
+            style="@style/info_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <HorizontalScrollView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="44px"
             android:scrollbars="none"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -64,32 +68,43 @@
     <LinearLayout
         android:id="@+id/ll_album"
         android:layout_below="@+id/ll_default"
-        android:layout_above="@+id/ll_bottom"
+        android:layout_above="@+id/view1"
+        android:layout_marginTop="52px"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:text="相册选取"
+            style="@style/info_hint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <GridView
             android:id="@+id/gv_album"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="32px"
             android:numColumns="3"
-            android:horizontalSpacing="10dp"
-            android:verticalSpacing="10dp"
+            android:horizontalSpacing="16px"
+            android:verticalSpacing="16px"
             android:listSelector="@color/trans"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </GridView>
     </LinearLayout>
+    <View
+        android:id="@+id/view1"
+        android:layout_above="@+id/ll_bottom"
+        android:background="@color/line"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="50px"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
     <LinearLayout
         android:id="@+id/ll_bottom"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="52px"
         android:weightSum="2"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="wrap_content">
         <RelativeLayout
             android:id="@+id/rl_cancel"
             android:gravity="center"
@@ -98,22 +113,25 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/iv_cancel"
-                android:src="@drawable/icon_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:src="@drawable/icon_return"
+                android:layout_centerHorizontal="true"
+                android:layout_width="66px"
+                android:layout_height="66px" />
             <TextView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2px"
                 android:layout_below="@+id/iv_cancel"
                 android:text="取消"
+                android:layout_centerHorizontal="true"
+                style="@style/title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
         <View
             android:background="@color/text_gray"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_width="0.3dp"
-            android:layout_height="match_parent"/>
+            android:layout_marginTop="2px"
+            android:layout_marginBottom="2px"
+            android:layout_width="1px"
+            android:layout_height="116px"/>
         <RelativeLayout
             android:id="@+id/rl_confirm"
             android:gravity="center"
@@ -122,13 +140,16 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/iv_confirm"
-                android:src="@drawable/icon_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/icon_confirm"
+                android:layout_width="66px"
+                android:layout_height="66px" />
             <TextView
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2px"
                 android:layout_below="@+id/iv_confirm"
                 android:text="确认"
+                android:layout_centerHorizontal="true"
+                style="@style/title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>

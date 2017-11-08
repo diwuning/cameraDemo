@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.castedemo.R;
-import com.example.castedemo.user.bean.TagBean;
+import com.example.sugardemo.UserTag;
 
 import java.util.List;
 
@@ -24,9 +24,9 @@ import butterknife.ButterKnife;
 public class NewTagAdapter extends BaseAdapter {
     private static final String TAG = "TagAdapter";
     private Context mContext;
-    private List<TagBean> tagBeen;
+    private List<UserTag> tagBeen;
 
-    public NewTagAdapter(Context mContext, List<TagBean> tagBeen) {
+    public NewTagAdapter(Context mContext, List<UserTag> tagBeen) {
         this.mContext = mContext;
         this.tagBeen = tagBeen;
     }
@@ -56,7 +56,7 @@ public class NewTagAdapter extends BaseAdapter {
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-        TagBean bean = tagBeen.get(position);
+        UserTag bean = tagBeen.get(position);
         if(bean.isSel()){
             holder.ivCheck.setVisibility(View.VISIBLE);
         }else{

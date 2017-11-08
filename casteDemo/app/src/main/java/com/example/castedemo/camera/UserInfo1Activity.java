@@ -126,8 +126,8 @@ public class UserInfo1Activity extends Activity {
         final List<MediaBean> systemAvaters = new ArrayList<MediaBean>();
         try {
             String[] systemAvater = getResources().getAssets().list("pictures");
-            String[] avaterName = {"爸爸", "妈妈", "儿子", "女儿", "其他"};
-            String[] sexArr = {"男","女","男","女","男"};
+            String[] avaterName = {"爸爸", "妈妈", "爷爷", "奶奶", "女儿", "儿子"};
+            String[] sexArr = {"男","女","男","女","男","女"};
             for (int i = 0; i < systemAvater.length; i++) {
                 systemAvater[i] = "assets://pictures/" + systemAvater[i];
                 Log.e(TAG, "system=" + systemAvater[i]);
@@ -137,15 +137,15 @@ public class UserInfo1Activity extends Activity {
                 bean.setSex(sexArr[i]);
                 systemAvaters.add(bean);
             }
-            SystemAvaterAdapter adapter = new SystemAvaterAdapter(mContext, systemAvaters);
+            final SystemAvaterAdapter adapter = new SystemAvaterAdapter(mContext, systemAvaters);
             int size = systemAvater.length;
             gvFamily.setNumColumns(size);
-            int width = 210;
-            int gridWidth = size * (width + 10);
+            int width = 119;
+            int gridWidth = size * (width + 48);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridWidth, ViewGroup.LayoutParams.FILL_PARENT);
             gvFamily.setLayoutParams(params);
-            gvFamily.setColumnWidth(210);
-            gvFamily.setHorizontalSpacing(10);
+            gvFamily.setColumnWidth(119);
+            gvFamily.setHorizontalSpacing(48);
             gvFamily.setAdapter(adapter);
             gvFamily.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -155,6 +155,7 @@ public class UserInfo1Activity extends Activity {
                     imgPath = bean.getPath();
                     tvNickName.setText(bean.getDisplayName());
                     tvSex.setText(bean.getSex());
+                    adapter.setData(position);
                 }
             });
         } catch (IOException e) {
@@ -241,6 +242,8 @@ public class UserInfo1Activity extends Activity {
                 if(receiveTags != null){
                     userInfo.setTags(receiveTags);
                 }
+                userInfo.setMain(false);
+                userInfo.setMainPhone("13256397920");
 //                userInfo.setFaceId(true);//测试
                 userInfoDao.addUser(userInfo);
                 finish();
@@ -253,6 +256,18 @@ public class UserInfo1Activity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
+//                case 1000:
+//                    imgPath = data.getStringExtra("path");
+//                    Log.e(TAG, "onNewIntent ====uri=" + getIntent().getData() + ",path=" + imgPath);
+//                    String from = data.getStringExtra("from");
+//                    if (from.equals("crop")) {
+////            ImageLoader.getInstance().displayImage("file://"+imgPath,ivUserPic);
+//                        ImageLoader.getInstance().displayImage("file://" + imgPath, circleImageView);
+//                    } else if (from.equals("system")) {
+////            ImageLoader.getInstance().displayImage(imgPath,ivUserPic);
+//                        ImageLoader.getInstance().displayImage(imgPath, circleImageView);
+//                    }
+//                    break;
                 case 1001:
                     Log.e(TAG, "1001");
                     String nickName = data.getStringExtra("nickName");
@@ -283,11 +298,11 @@ public class UserInfo1Activity extends Activity {
                         TagAdapter tagAdapter = new TagAdapter(mContext, tags);
                         int size = tags.length;
                         gvTag.setNumColumns(size);
-                        int width = 210;
+                        int width = 148;
                         int gridWidth = size * (width + 10);
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(gridWidth, ViewGroup.LayoutParams.FILL_PARENT);
                         gvTag.setLayoutParams(params);
-                        gvTag.setColumnWidth(210);
+                        gvTag.setColumnWidth(148);
                         gvTag.setHorizontalSpacing(10);
                         gvTag.setAdapter(tagAdapter);
                         hsvTag.setVisibility(View.VISIBLE);

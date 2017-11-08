@@ -8,10 +8,13 @@
     tools:context="com.example.castedemo.camera.TakePic1Activity">
     <RelativeLayout
         android:id="@+id/rl_takePhoto"
+        android:layout_marginRight="40px"
+        android:layout_marginLeft="40px"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <FrameLayout
             android:id="@+id/fl_content"
+            android:layout_marginTop="102px"
             android:layout_above="@+id/buttonLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -23,23 +26,23 @@
         <RelativeLayout
             android:layout_alignParentBottom="true"
             android:id="@+id/buttonLayout"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="56px"
+            android:layout_marginBottom="52px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/btn_back"
-                android:layout_width="80dp"
-                android:layout_height="80dp" />
+                android:src="@drawable/btn_cancel"
+                android:layout_centerVertical="true"
+                android:layout_width="92px"
+                android:layout_height="92px" />
             <!-- 拍照按钮 -->
             <Button
                 android:id="@+id/takepicture"
                 android:layout_centerHorizontal="true"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/msg_camera_take"
+                android:layout_width="110px"
+                android:layout_height="110px"
+                android:background="@drawable/icon_take_pic"
                 />
         </RelativeLayout>
     </RelativeLayout>

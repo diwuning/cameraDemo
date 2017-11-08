@@ -27,10 +27,16 @@ public class SystemAvaterAdapter extends BaseAdapter {
     private Context mContext;
     private String[] systemAvaters;
     private List<MediaBean> mediaBeen;
+    int location = -1;
 
     public SystemAvaterAdapter(Context mContext, List<MediaBean> mediaBeen) {
         this.mContext = mContext;
         this.mediaBeen = mediaBeen;
+    }
+
+    public void setData(int position){
+        this.location = position;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -68,6 +74,14 @@ public class SystemAvaterAdapter extends BaseAdapter {
         }else{
             holder.tvSystemName.setVisibility(View.GONE);
         }
+
+        if(location == position){
+            holder.ivAvaterBg.setVisibility(View.VISIBLE);
+            holder.tvSystemName.setTextColor(mContext.getResources().getColor(R.color.orange));
+        }else{
+            holder.ivAvaterBg.setVisibility(View.GONE);
+            holder.tvSystemName.setTextColor(mContext.getResources().getColor(R.color.text_white));
+        }
         return convertView;
     }
 
@@ -76,6 +90,8 @@ public class SystemAvaterAdapter extends BaseAdapter {
         ImageView ivSystem;
         @BindView(R.id.tv_systemName)
         TextView tvSystemName;
+        @BindView(R.id.iv_avaterBg)
+        ImageView ivAvaterBg;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

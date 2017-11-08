@@ -11,19 +11,22 @@
         android:layout_height="match_parent">
         <LinearLayout
             android:orientation="vertical"
+            android:layout_marginTop="122px"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
                 android:text="新建家庭成员"
                 android:gravity="center"
+                android:textSize="30px"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
             <HorizontalScrollView
                 android:isScrollContainer="true"
                 android:scrollbars="none"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginBottom="39px"
+                android:layout_marginTop="56px"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -32,213 +35,222 @@
                     <GridView
                         android:id="@+id/gv_family"
                         android:listSelector="@color/trans"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
                         android:layout_width="match_parent"
-                        android:layout_height="80dp">
+                        android:layout_height="wrap_content">
 
                     </GridView>
                 </LinearLayout>
             </HorizontalScrollView>
             <LinearLayout
-                android:background="@color/text_gray"
+                android:background="@color/info_bg"
                 android:orientation="vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="124px">
                     <TextView
                         android:text="头像"
+                        style="@style/info_label"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="30px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <LinearLayout
                         android:id="@+id/ll_userPic"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="32px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <com.example.castedemo.view.CircleImageView
                             android:id="@+id/ci_userPic"
                             android:background="@drawable/ic_launcher_round"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp" />
+                            android:layout_width="88px"
+                            android:layout_height="88px" />
                         <!--<ImageView-->
                             <!--android:id="@+id/iv_userPic"-->
                             <!--android:layout_width="wrap_content"-->
                             <!--android:layout_height="wrap_content" />-->
                         <ImageView
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="38px"
                             android:layout_gravity="center_vertical"
                             android:src="@drawable/btn_next"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_width="16px"
+                            android:layout_height="29px" />
                     </LinearLayout>
                 </RelativeLayout>
                 <View
-                    android:background="#bababa"
+                    android:background="#33ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="0.3dp"/>
+                    android:layout_height="1px"/>
                 <RelativeLayout
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="124px">
                     <TextView
                         android:text="昵称"
-                        android:layout_marginLeft="10dp"
+                        style="@style/info_label"
+                        android:layout_marginLeft="30px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <LinearLayout
                         android:id="@+id/ll_nickName"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="32px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/tv_nickName"
                             android:hint="请填写昵称"
+                            style="@style/info_hint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_marginLeft="38px"
+                            android:layout_width="16px"
+                            android:layout_height="29px" />
                     </LinearLayout>
                 </RelativeLayout>
                 <View
-                    android:background="#bababa"
+                    android:background="#33ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="0.3dp"/>
+                    android:layout_height="1px"/>
                 <RelativeLayout
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="124px">
                     <TextView
                         android:text="性别"
-                        android:layout_marginLeft="10dp"
+                        style="@style/info_label"
+                        android:layout_marginLeft="30px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <LinearLayout
                         android:id="@+id/ll_sex"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="32px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/tv_sex"
                             android:hint="请选择性别"
+                            style="@style/info_hint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_marginLeft="38px"
+                            android:layout_width="16px"
+                            android:layout_height="29px" />
                     </LinearLayout>
                 </RelativeLayout>
                 <View
-                    android:background="#bababa"
+                    android:background="#33ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="0.3dp"/>
+                    android:layout_height="1px"/>
                 <RelativeLayout
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="124px">
                     <TextView
                         android:text="生日"
-                        android:layout_marginLeft="10dp"
+                        style="@style/info_label"
+                        android:layout_marginLeft="30px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <LinearLayout
                         android:id="@+id/ll_birthday"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="32px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/tv_birthday"
                             android:hint="请选择"
+                            style="@style/info_hint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_marginLeft="38px"
+                            android:layout_width="16px"
+                            android:layout_height="29px" />
                     </LinearLayout>
                 </RelativeLayout>
                 <View
-                    android:background="#bababa"
+                    android:background="#33ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="0.3dp"/>
+                    android:layout_height="1px"/>
                 <RelativeLayout
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="124px">
                     <TextView
                         android:text="身高"
-                        android:layout_marginLeft="10dp"
+                        style="@style/info_label"
+                        android:layout_marginLeft="30px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <LinearLayout
                         android:id="@+id/ll_height"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="32px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/tv_height"
                             android:hint="请选择"
+                            style="@style/info_hint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_marginLeft="38px"
+                            android:layout_width="16px"
+                            android:layout_height="29px" />
                     </LinearLayout>
                 </RelativeLayout>
                 <View
-                    android:background="#bababa"
+                    android:background="#33ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="0.3dp"/>
+                    android:layout_height="1px"/>
                 <RelativeLayout
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="124px">
                     <TextView
                         android:text="体重"
-                        android:layout_marginLeft="10dp"
+                        style="@style/info_label"
+                        android:layout_marginLeft="30px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <LinearLayout
                         android:id="@+id/ll_weight"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="32px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/tv_weight"
                             android:hint="请选择"
+                            style="@style/info_hint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_marginLeft="38px"
+                            android:layout_width="16px"
+                            android:layout_height="29px" />
                     </LinearLayout>
                 </RelativeLayout>
                 <View
-                    android:background="#bababa"
+                    android:background="#33ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="0.3dp"/>
+                    android:layout_height="1px"/>
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -246,43 +258,47 @@
                     <RelativeLayout
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="80dp">
+                        android:layout_height="124px">
                         <TextView
                             android:text="偏好标签"
-                            android:layout_marginLeft="10dp"
+                            style="@style/info_label"
+                            android:layout_marginLeft="30px"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <LinearLayout
                             android:id="@+id/ll_userTag"
                             android:layout_alignParentRight="true"
-                            android:layout_marginRight="10dp"
+                            android:layout_marginRight="32px"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                             <TextView
                                 android:id="@+id/tv_userTag"
                                 android:hint="请选择偏好标签"
+                                style="@style/info_hint"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                             <ImageView
                                 android:src="@drawable/btn_next"
-                                android:layout_marginLeft="10dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_marginLeft="38px"
+                                android:layout_width="16px"
+                                android:layout_height="29px" />
                         </LinearLayout>
                     </RelativeLayout>
                     <HorizontalScrollView
                         android:id="@+id/hsv_tag"
                         android:visibility="gone"
-                        android:layout_marginTop="-10dp"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginTop="-15px"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="86px">
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <GridView
                                 android:id="@+id/gv_tag"
                                 android:layout_width="match_parent"
-                                android:layout_height="50dp">
+                                android:layout_height="86px">
 
                             </GridView>
                         </LinearLayout>
@@ -290,87 +306,98 @@
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
-                android:background="@color/text_gray"
+                android:background="@color/info_bg"
                 android:orientation="vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:layout_marginTop="100px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RelativeLayout
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="124px">
                     <TextView
                         android:text="手机号码"
-                        android:layout_marginLeft="10dp"
+                        style="@style/info_label"
+                        android:layout_marginLeft="30px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <LinearLayout
                         android:id="@+id/ll_phone"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="32px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/tv_phone"
                             android:hint="绑定手机号"
+                            style="@style/info_hint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_marginLeft="38px"
+                            android:layout_width="16px"
+                            android:layout_height="29px" />
                     </LinearLayout>
                 </RelativeLayout>
                 <View
-                    android:background="#bababa"
+                    android:background="#33ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="0.3dp"/>
+                    android:layout_height="1px"/>
                 <RelativeLayout
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="124px">
                     <TextView
                         android:text="FACE ID"
-                        android:layout_marginLeft="10dp"
+                        style="@style/info_label"
+                        android:layout_marginLeft="30px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <LinearLayout
                         android:id="@+id/ll_faceId"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_marginRight="32px"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/tv_faceid"
                             android:hint="创建人脸识别"
+                            style="@style/info_hint"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <ImageView
                             android:src="@drawable/btn_next"
-                            android:layout_marginLeft="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_marginLeft="38px"
+                            android:layout_width="16px"
+                            android:layout_height="29px" />
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="124px"
                 android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/btn_cancel"
+                    android:background="@drawable/btn_select_orange"
                     android:text="取消"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textSize="24px"
+                    android:textColor="#66ffffff"
+                    android:layout_width="132px"
+                    android:layout_height="65px" />
                 <Button
                     android:id="@+id/btn_save"
+                    android:layout_marginLeft="174px"
+                    android:background="@drawable/border_orange_style"
+                    android:textSize="24px"
+                    android:textColor="#000000"
                     android:text="保存"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="132px"
+                    android:layout_height="65px" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -1,5 +1,7 @@
 package com.example.sugardemo;
 
+import android.util.Log;
+
 import java.util.List;
 
 /**
@@ -34,8 +36,23 @@ public class UserInfoDao {
     /*
     * 根据昵称查询
     * */
-    public List<UserInfo> getUser(String nickName){
-        List<UserInfo> userInfos = UserInfo.find(UserInfo.class,"userName=?",nickName);
+    public List<UserInfo> getUsers(String nickName){
+        List<UserInfo> userInfos = UserInfo.find(UserInfo.class,"USER_NAME=?",nickName);
+        if(userInfos != null && userInfos.size() != 0){
+            return userInfos;
+        }else{
+            return null;
+        }
+
+    }
+
+    /*
+    * 根据关联的主帐号手机号查询
+    * */
+    public List<UserInfo> getUsersByTel(String mainPhone){
+//        Log.e("userinfo",.);
+        List<UserInfo> userInfos = UserInfo.find(UserInfo.class,"MAIN_PHONE=?",mainPhone);
+//        List<UserInfo> userInfos = UserInfo.findWithQuery(UserInfo.class,"select * from USER_INFO where mainPhone=?",mainPhone);
         if(userInfos != null && userInfos.size() != 0){
             return userInfos;
         }else{
