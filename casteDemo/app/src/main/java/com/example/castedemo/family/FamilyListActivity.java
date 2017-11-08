@@ -115,7 +115,7 @@ public class FamilyListActivity extends Activity {
     @BindView(R.id.rl_noMember)
     RelativeLayout rl_noMember;
     UserInfo userInfo;
-    boolean isUpdate = false;
+    boolean isUpdate = true;
     String mainPhone = "13256397920";
     MemberAdapter memberAdapter;
     int selIndex = -1;
@@ -340,7 +340,8 @@ public class FamilyListActivity extends Activity {
                     }
                     userInfoDao.updateUserInfo(userInfo);
                     initMembers();
-                    memberAdapter.setDataChange(userInfos.size()-1);
+                    memberAdapter.setDataChange(selIndex);
+                    Toast.makeText(mContext,"成员信息已更新",Toast.LENGTH_SHORT).show();
                 }
 
                 break;
